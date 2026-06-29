@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  opacity: 0.9;
+}
