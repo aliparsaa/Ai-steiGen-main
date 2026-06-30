@@ -47,9 +47,8 @@ export default function HomePage() {
                   <h3 className="mt-2 text-base font-bold text-slate-200 line-clamp-1 group-hover:text-blue-400 transition">
                     {product.title}
                   </h3>
-                  <p className="mt-2 text-xs text-slate-400 line-clamp-2 leading-5">
-                    {product.shortDescription}
-                  </p>
+                  
+                  
                   <div className="mt-auto pt-5 flex items-center justify-between border-t border-slate-900/60">
                     <span className="text-sm font-bold text-white">{product.price} تومان</span>
                     <Link
