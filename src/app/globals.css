@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', sans-serif; /* یا فونت فارسی مد نظرت */
+}
+
+
+/* افکت‌های انیمیشن و شیشه‌ای لندینگ */
+.glass-nav {
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  background: rgba(255, 255, 255, 0.82);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.12);
+}
+
+.product-card {
+  transform-style: preserve-3d;
+  transition: transform 0.12s ease-out, box-shadow 0.35s ease;
+  will-change: transform;
+}
+.product-card:hover {
+  box-shadow: 0 30px 60px rgba(10, 25, 47, 0.12), 0 0 40px rgba(212, 175, 55, 0.08);
+}
+
+.edu-card {
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  background: rgba(17, 34, 64, 0.75);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(.4,0,.2,1);
+}
+.edu-card:hover {
+  border-color: rgba(212, 175, 55, 0.55);
+  box-shadow: 0 0 50px rgba(212, 175, 55, 0.12), inset 0 0 40px rgba(212, 175, 55, 0.04);
+  transform: translateY(-6px);
+}
+
+.edu-scroll {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 1rem 0 1.5rem;
+}
+.edu-scroll::-webkit-scrollbar { display: none; }
+.edu-card { scroll-snap-align: start; flex-shrink: 0; }
+
+.specs-table { border-collapse: separate; border-spacing: 0; }
+.specs-table th { background: var(--bg-dark); color: var(--accent); font-weight: 600; }
+.specs-table td { border-bottom: 1px solid rgba(10, 25, 47, 0.07); }
+.specs-table tbody tr { transition: background 0.25s ease; }
+.specs-table tbody tr:hover td { background: rgba(212, 175, 55, 0.04); }
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.7; }
+  50% { transform: translateY(10px); opacity: 0.3; }
+}
+.scroll-indicator { animation: scrollBounce 2.2s ease-in-out infinite; }
+
+.gold-line {
+  height: 1px;
+  background: linear-gradient(to left, transparent, var(--accent), transparent);
+}
+
+.dot-pattern {
+  background-image: radial-gradient(rgba(212, 175, 55, 0.07) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.scene-label {
+  transform: translate(12px, -50%);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+@keyframes toastIn {
+  from { opacity: 0; transform: translate(-50%, 24px); }
+  to   { opacity: 1; transform: translate(-50%, 0); }
+}
+@keyframes toastOut {
+  from { opacity: 1; transform: translate(-50%, 0); }
+  to   { opacity: 0; transform: translate(-50%, 24px); }
+}
+
+.toast-custom {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0A192F;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  z-index: 200;
+  box-shadow: 0 10px 40px rgba(10,25,47,0.3);
+  animation: toastIn 0.3s ease;
+}
